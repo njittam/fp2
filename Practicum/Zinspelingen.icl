@@ -1,0 +1,6 @@
+implementation module Zinspelingen
+
+import StdEnv, Firsts, Frags, Subs, Perms, Words
+
+Start :: *World -> ...
+Start world = ...

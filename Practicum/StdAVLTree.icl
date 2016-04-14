@@ -1,0 +1,23 @@
+implementation module StdAVLTree
+
+import StdEnv
+
+::	AVLTree  a = ...
+
+mkAVLLeaf :: AVLTree a
+mkAVLLeaf ...
+
+mkAVLNode :: a -> AVLTree a
+mkAVLNode ...
+
+isMemberAVLTree :: a (AVLTree a) -> Bool | Eq, Ord a
+isMemberAVLTree ...
+
+insertAVLTree :: a (AVLTree a) -> AVLTree a | Eq, Ord a
+insertAVLTree ...
+
+deleteAVLTree :: a (AVLTree a) -> AVLTree a	| Eq, Ord a
+deleteAVLTree ...
+
+isAVLTree :: (AVLTree a) -> Bool | Eq, Ord a
+isAVLTree ...
