@@ -1,5 +1,5 @@
 module Galgje
 
-import StdEnv, SimpleFileIO, RandomGetallen
+import StdEnv, SimpleFileIO, Random
 
 Start = 0
