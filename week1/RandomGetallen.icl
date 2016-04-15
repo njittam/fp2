@@ -5,7 +5,7 @@ import StdEnv, Random
 Start :: *World -> ([Int], *World)
 // Start :: *World -> (([Int], RandomSeed), *World)
 Start world
-# (rs,world)	= getNewRandomSeed world
+# (rs, world)	= getNewRandomSeed world
 = (shuffle [1..10] rs, world)
 // = (random_n 3 rs, world)
 
@@ -21,10 +21,13 @@ random_n n seed
 /*
 random_inf :: RandomSeed -> [Int]
 random_inf ...
+*/
 
 iterateSt :: (s -> (a,s)) s -> [a]
 iterateSt ...
-*/
+
+iterate::(a -> a) a -> .[a]
+iterate f x	= [x:iterate f (f x)]
 
 shuffle :: [a] RandomSeed -> [a]
 shuffle [] seed = []

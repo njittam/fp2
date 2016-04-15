@@ -1,5 +1,13 @@
 module Galgje
 
-import StdEnv, SimpleFileIO, Random
+import StdEnv, RandomGetallen
 
-Start = 0
+Start = galgje woord where
+	woord = vraag_woord
+
+galgje :: String -> String
+galgje woord = woord
+
+vraag_woord = woord where
+	woord = "hier moet io komen"
+
