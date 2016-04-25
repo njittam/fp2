@@ -1,0 +1,315 @@
+.comp 920 01011101001
+.start __MonadPractical_Start
+.depend "_SystemEnum"
+.depend "StdEnum"
+.depend "StdMisc"
+.depend "StdFunc"
+.depend "StdCharList"
+.depend "StdTuple"
+.depend "StdOrdList"
+.depend "StdList"
+.depend "StdClass"
+.depend "StdFile"
+.depend "StdString"
+.depend "_SystemArray"
+.depend "StdArray"
+.depend "StdChar"
+.depend "StdReal"
+.depend "StdInt"
+.depend "StdOverloaded"
+.depend "StdBool"
+.depend "StdEnv"
+.endinfo
+.module m_MonadPractical "MonadPractical"
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc _ind
+.implab _indirection _eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.implab e_StdList_smap
+.implab e_StdString_s==;2
+.impdesc e_StdString_d+++;11
+.implab e_StdString_n+++;11
+.implab e_StdInt_s==;16
+.implab e_StdInt_stoInt;23
+.implab e_StdBool_snot
+.desc d43 _hnf _hnf 0 0 "Nothing"
+.desc d44 _hnf _add_arg 1 0 "Just"
+.desc d45 _hnf _add_arg 1 0 "Left"
+.desc d46 _hnf _add_arg 1 0 "Right"
+.record r34 aaa 3 0 "Person"
+.desc0 d47 0 "Male"
+.desc0 d48 1 "Female"
+.desc d49 _hnf _add_arg 1 0 "State"
+.export __MonadPractical_Start
+.o 0 0
+__MonadPractical_Start
+	build _ 0 n19
+.d 1 0
+	jmp _driver
+.n 0 _ ea19
+.o 1 0
+n19
+	push_node _cycle_in_spine 0
+.o 1 0
+ea19
+.o 1 0
+s19
+	create
+.d 1 0
+	jsr s18
+.o 1 0
+	buildh d22 0
+.d 3 0
+	jmp e_StdList_smap
+.desc d22 _hnf l22 1 0 "<lambda>[line:193];14;21"
+.o 2 0
+l22
+	update_a 1 0
+	create
+	update_a 0 2
+	pop_a 1
+.o 2 0
+ea22
+	jsr_eval 0
+	repl_args 3 3
+	jsr_eval 1
+	push_array 1
+	update_a 0 2
+	pop_a 1
+.o 4 0
+s22
+	push_a 2
+	push_a 2
+	push_a 2
+	update_a 2 5
+	update_a 1 4
+	updatepop_a 0 3
+.d 4 0
+	jmp s7
+.o 1 0
+s18
+	buildh _Nil 0
+	buildAC "f"
+	buildh ARRAY 1
+	buildAC ""
+	buildh ARRAY 1
+	buildAC "Dave"
+	buildh ARRAY 1
+	buildh _Tuple 3
+	buildh _Cons 2
+	buildAC "o"
+	buildh ARRAY 1
+	buildAC "18"
+	buildh ARRAY 1
+	buildAC "Carol"
+	buildh ARRAY 1
+	buildh _Tuple 3
+	buildh _Cons 2
+	buildAC "m"
+	buildh ARRAY 1
+	buildAC "2.5"
+	buildh ARRAY 1
+	buildAC "Bob"
+	buildh ARRAY 1
+	buildh _Tuple 3
+	buildh _Cons 2
+	buildAC "f"
+	buildh ARRAY 1
+	buildAC "37"
+	buildh ARRAY 1
+	buildAC "Alice"
+	buildh ARRAY 1
+	buildh _Tuple 3
+	fillh _Cons 2 2
+.d 1 0
+	rtn
+.o 4 0
+s7
+	create
+	push_a 2
+	update_a 2 3
+	update_a 1 2
+	updatepop_a 0 1
+.d 2 0
+	jsr s5
+.o 1 0
+	push_a 1
+	push_a 3
+	push_a 2
+	update_a 2 3
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	update_a 2 4
+	update_a 1 3
+	updatepop_a 0 2
+.d 4 0
+	jmp s28
+.o 4 0
+s28
+	eq_desc d45 1 0
+	jmp_true case.1
+	jmp case.2
+case.1
+	repl_args 1 1
+	push_a 0
+	fillh d45 1 4
+	pop_a 3
+.d 1 0
+	rtn
+case.2
+	repl_args 1 1
+	push_a 1
+	jsr_eval 0
+	push_array 0
+	updatepop_a 0 1
+	create
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	update_a 2 3
+	update_a 1 2
+	updatepop_a 0 1
+.d 2 0
+	jsr s6
+.o 1 0
+	push_a 1
+	push_a 3
+	push_a 2
+	update_a 2 3
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	update_a 2 4
+	update_a 1 3
+	updatepop_a 0 2
+.d 4 0
+	jmp s27
+.o 4 0
+s27
+	eq_desc d45 1 0
+	jmp_true case.3
+	jmp case.4
+case.3
+	repl_args 1 1
+	push_a 0
+	fillh d45 1 4
+	pop_a 3
+.d 1 0
+	rtn
+case.4
+	repl_args 1 1
+	push_a 0
+	push_a 3
+	push_a 3
+	build_r r34 3 0 0 0
+	update_a 0 3
+	pop_a 3
+	fillh d46 1 4
+	pop_a 3
+.d 1 0
+	rtn
+.o 2 0
+s6
+	push_a 0
+	eqAC_a "m"
+	jmp_true case.5
+	push_a 0
+	eqAC_a "f"
+	jmp_true case.6
+	jmp case.7
+case.5
+	buildh d47 0
+	fillh d46 1 2
+	pop_a 1
+.d 1 0
+	rtn
+case.6
+	buildh d48 0
+	fillh d46 1 2
+	pop_a 1
+.d 1 0
+	rtn
+case.7
+	buildAC "Unknown gender"
+	buildh ARRAY 1
+	fillh d45 1 2
+	pop_a 1
+.d 1 0
+	rtn
+.o 2 0
+s5
+	push_a 0
+	eqAC_a ""
+	jmp_true case.8
+	jmp case.9
+case.8
+	buildAC "Nothing to parse as age"
+	buildh ARRAY 1
+	fillh d45 1 2
+	pop_a 1
+.d 1 0
+	rtn
+case.9
+	push_a 0
+.d 1 0
+	jsr e_StdInt_stoInt;23
+.o 0 1 i
+	pushI 0
+	push_b 1
+	eqI
+	jmp_false else.10
+	buildAC "0"
+	push_a 1
+.d 2 0
+	jsr eqAC
+.o 0 1 b	
+	notB
+	jmp_false else.10
+	buildAC " is not a valid age"
+	buildh ARRAY 1
+	push_a 1
+	buildh ARRAY 1
+	build _ 2 e_StdString_n+++;11
+	fillh d45 1 2
+	pop_a 1
+	pop_b 1
+.d 1 0
+	rtn
+else.10
+	buildI_b 0
+	fillh d46 1 2
+	pop_a 1
+	pop_b 1
+.d 1 0
+	rtn
