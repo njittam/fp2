@@ -188,14 +188,43 @@ instance Monad (Either e) where
 persons = [("Alice", "37", "f"), ("Bob", "2.5", "m"), ("Carol", "18", "o"), ("Dave", "", "f")]
 pa = ("Alice", "37", "f")
 // opdracht 3.2
-// Start = map parsePerson persons
-makePerson :: (String, Either Int, Either Gender) -> Either Error Person
-makePerson (name,age,gender) = \pure {name = name, age = age, gender = gender}
 
-stuff :: (String,String,String) -> Either Error a
-stuff (name, age, gender) = pure (name,(pure age >>= \eage -> parseAge),(pure gender)) -> 
 
 //opdracht 3.3
-Start = stuff pa
-	//(\(name, age, gender) ->
-	//parseAge age >>= (parseGender gender >>= pure {name = name, age = age, gender = gender})) pa
+//Start  
+//  # mypersonparser = \(name, age, gender) -> parseAge age >>= \new_age -> parseGender gender >>= \new_gender -> pure {name = name, age = new_age, gender = new_gender}
+//  # mymap = (\[x:t] -> [mypersonparser x: (\[x1:t1] -> [mypersonparser x1: (\[x2:t2] -> [mypersonparser x2: (\[x3:t3] -> [mypersonparser x3: []]) t2]) t1]) t])
+//  = mymap persons
+
+// opdracht 4.1
+in3 :: Position -> [Position]
+in3 pos = flatten (map moveKnight (flatten (map moveKnight (moveKnight pos))))
+//Start = in3 (0,0)
+
+:: List a = Nil | Cons a (List a)
+
+//opdracht 4.2
+instance Monad List where 
+  (>>=) :: (List a) (a -> List b) -> (List b)
+  (>>=) command next = case command  of 
+    Nil -> Nil 
+    Cons e f -> toList (flatten (map next (fromList command)))
+  pure :: a ->  (List a)
+  pure a = Cons a (Nil)
+
+toList :: [a] -> List a
+toList [] = Nil
+toList [x:t] = Cons x (toList t)
+
+fromList :: (List a) -> [a]
+fromList l = case l of 
+        Nil -> []
+        Cons x (y) -> [x: fromList y]
+
+//opdracht 4.3
+in32 :: Position -> [Position]
+in32 pos = (pure moveKnight pos) 
+ >>= moveKnight 
+ >>= moveKnight
+
+Start = (in3 (0,0)) == (in32 (0,0))
