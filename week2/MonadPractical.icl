@@ -2,7 +2,8 @@ module MonadPractical
 import StdEnv
 
 
-
+//s4446402 s443697
+// Mattijn Kreuzen David van  't wout
 /// §1: The Monad Class and its Laws ///////////////////////////////////////////
 
 class Monad m where
@@ -208,9 +209,12 @@ instance Monad List where
   (>>=) :: (List a) (a -> List b) -> (List b)
   (>>=) command next = case command  of 
     Nil -> Nil 
-    Cons e f -> toList (flatten (map next (fromList command)))
+    Cons e f -> toList (flatten (map (new_next next) (fromList command)))
   pure :: a ->  (List a)
   pure a = Cons a (Nil)
+
+new_next :: (a -> List b) -> (a -> [b])
+new_next next = \x -> fromList (next x)
 
 toList :: [a] -> List a
 toList [] = Nil
@@ -221,10 +225,29 @@ fromList l = case l of
         Nil -> []
         Cons x (y) -> [x: fromList y]
 
-//opdracht 4.3
-in32 :: Position -> [Position]
-in32 pos = (pure moveKnight pos) 
- >>= moveKnight 
- >>= moveKnight
+moveKnight2 :: Position -> List Position
+moveKnight2 pos = toList (moveKnight pos)
 
-Start = (in3 (0,0)) == (in32 (0,0))
+//opdracht 4.3
+in32 :: Position -> List Position
+in32 pos = (moveKnight2 pos)
+ >>= moveKnight2
+ >>= moveKnight2
+
+Start = (in3 (0,0)) == (fromList (in32 (0,0)))
+/*
+instance Monad (State s) where
+  (>>=) :: (State s a) (a -> State s b) -> State s b
+  (>>=) command next = case command of 
+    State f -> \state -> (next a) state
+      where (a,s) = f state
+
+  pure :: a -> State s a
+  pure a = State (\state -> (a, state))
+  */
+  /* en nu kom ik op een error die zegt
+  Type error [MonadPractical.icl,241,>>=]: near (let ... ) or # : cannot unify types:
+ State v2 v1
+ v15 -> v13
+maar ik heb geen let of # in de buurt van regel 241
+opdrachgt 5.2 kan ik niet testen*/
