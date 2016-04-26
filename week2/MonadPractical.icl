@@ -189,8 +189,13 @@ persons = [("Alice", "37", "f"), ("Bob", "2.5", "m"), ("Carol", "18", "o"), ("Da
 pa = ("Alice", "37", "f")
 // opdracht 3.2
 // Start = map parsePerson persons
+makePerson :: (String, Either Int, Either Gender) -> Either Error Person
+makePerson (name,age,gender) = \pure {name = name, age = age, gender = gender}
+
+stuff :: (String,String,String) -> Either Error a
+stuff (name, age, gender) = pure (name,(pure age >>= \eage -> parseAge),(pure gender)) -> 
 
 //opdracht 3.3
-//Start :: -> Either Error Person
-Start = (\(name, age, gender) ->
-	parseAge age >>= (parseGender gender >>= pure {name = name, age = age, gender = gender})) pa
+Start = stuff pa
+	//(\(name, age, gender) ->
+	//parseAge age >>= (parseGender gender >>= pure {name = name, age = age, gender = gender})) pa
